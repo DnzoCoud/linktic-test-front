@@ -10,12 +10,12 @@ export interface SidebarItemProps {
 }
 
 export default function SidebarItem({ icon, label, to }: SidebarItemProps) {
-  const isActive = useActiveLink(to, false);
+  const isActive = useActiveLink(to, true);
   return (
     <MainPopover label={label}>
       <li className="w-full flex items-center justify-center">
         <Link
-          to={"/"}
+          to={to}
           className={cn(
             isActive
               ? "bg-slate-800 text-white"

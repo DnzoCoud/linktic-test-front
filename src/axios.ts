@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Crear una instancia de axios usando variables de entorno
 const apiInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL, // Usar la variable de entorno
   headers: {
@@ -10,9 +9,9 @@ const apiInstance = axios.create({
 
 apiInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('authToken');  // Recuperar el token desde localStorage
+    const token = localStorage.getItem("authToken"); // Recuperar el token desde localStorage
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;  // Añadir el token al encabezado
+      config.headers["Authorization"] = `Bearer ${token}`; // Añadir el token al encabezado
     }
     return config;
   },
